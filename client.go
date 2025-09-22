@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/ab-fakhrur/asynq/internal/base"
+	"github.com/ab-fakhrur/asynq/internal/errors"
+	"github.com/ab-fakhrur/asynq/internal/rdb"
 	"github.com/google/uuid"
-	"github.com/hibiken/asynq/internal/base"
-	"github.com/hibiken/asynq/internal/errors"
-	"github.com/hibiken/asynq/internal/rdb"
 	"github.com/redis/go-redis/v9"
 )
 

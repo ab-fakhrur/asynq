@@ -14,9 +14,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ab-fakhrur/asynq/internal/timeutil"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/uuid"
-	"github.com/hibiken/asynq/internal/timeutil"
 )
 
 func init() {
