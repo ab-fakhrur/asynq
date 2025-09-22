@@ -19,6 +19,11 @@ import (
 	"github.com/hibiken/asynq/internal/timeutil"
 )
 
+func init() {
+	// Ensure we're using the default prefix for all tests
+	SetRedisKeyPrefix("")
+}
+
 func TestTaskKey(t *testing.T) {
 	id := uuid.NewString()
 

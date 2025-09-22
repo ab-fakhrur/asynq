@@ -151,6 +151,9 @@ type Config struct {
 	// If a queue has a zero or negative priority value, the queue will be ignored.
 	Queues map[string]int
 
+	// Prefix for redis keys
+	RedisKeyPrefix string
+
 	// StrictPriority indicates whether the queue priority should be treated strictly.
 	//
 	// If set to true, tasks in the queue with the highest priority is processed first.
@@ -502,6 +505,9 @@ func NewServerFromRedisClient(c redis.UniversalClient, cfg Config) *Server {
 		loglevel = InfoLevel
 	}
 	logger.SetLevel(toInternalLogLevel(loglevel))
+
+	// Set the Redis key prefix before creating any Redis operations
+	base.SetRedisKeyPrefix(cfg.RedisKeyPrefix)
 
 	rdb := rdb.NewRDB(c)
 	starting := make(chan *workerInfo)
